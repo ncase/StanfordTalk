@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">How To Explain Things Real Good</h1>
+
+<p>Some people just want to watch the world learn.</p>
+
+<p>You&#39;re here, because you want to help others learn. I&#39;m here, because Hari thinks I&#39;m good at helping others learn. We&#39;ll see how quickly he regrets inviting me.</p>
+
+<p>So here&#39;s the deal: I ramble for 15 minutes about how to explain complex ideas, do a quick Q&amp;A, then, because this is a small class, I <em>might</em> be able to do some fast 1-on-1 feedback on your project ideas. Also I&#39;ll give Hari the slides to give to you later. Sound good? Let&#39;s go!</p>
+
+<hr>
+
+<p>Today I&#39;ll to <em>try</em> to explain <em>how</em> I explain. But first:</p>
+
+<h2 id="toc_1">Some Theory about why I&#39;m not giving you Some Theory</h2>
+
+<p>Explaining stuff is a skill. When training skills, people usually think about Theory versus Practice. Theory is easy to share, but hard to apply to day-to-day work. Practice <em>is</em> easy to apply, but hard to share –– for example, I can&#39;t <em>talk</em> you into being able to ride a bike.</p>
+
+<p>But I think there&#39;s something in the middle: Tricks! (or Heuristics, Rules-of-Thumb, whatever you call it.) Tricks <em>are</em> easy to share, but <em>also</em> easy to apply!</p>
+
+<p>But, of course, there&#39;s a catch: <em>the vast majority of tricks are false.</em> Like, &quot;Beer before liquor, never been sicker. Liquor before beer, you&#39;re in the clear.&quot; That&#39;s... false? Not true. It does not work.</p>
+
+<p>Y&#39;know, I only recently realized you can actually <em>test</em> advice? Like all products, advice can be <em>methodically tested, modified, and iterated upon</em>. The idea <em>that we should test our ideas</em> does not come naturally to human beings.</p>
+
+<p>So, before I share my favorite Tricks for explaining stuff, I want to stress that <em>actually tested &amp; iterated upon</em> these tricks. Of the hundreds of tricks I&#39;ve heard, I&#39;ve thrown away the ones that don&#39;t work, and the ones that technically work but are too easy to mess up. After 8 years of making explorable explanations, there&#39;s only a few tricks that have survived the test of time.</p>
+
+<p>So without further blabber, here&#39;s...</p>
+
+<h2 id="toc_2">Nicky&#39;s Top 5 Tricks On How To Explain Things Real Good</h2>
+
+<hr>
+
+<p>The first step to helping someone learn, is to help them <em>want</em> to learn. So:</p>
+
+<h2 id="toc_3">Trick #1: Show <em>what made you</em> care.</h2>
+
+<p>Most textbooks are fact-dumps, and seem to not care about helping you care. But sometimes, it&#39;s even worse when they <em>do</em> try to help you care. Here&#39;s some <em>other</em> Tricks I&#39;ve been told for making one&#39;s audience care, that <em>can</em> work, but are too easy to mess up:</p>
+
+<p>&quot;Make it interesting&quot; -&gt; becomes, &quot;How do you do, fellow kids? Math is COOL!&quot;</p>
+
+<p>&quot;Make it relevant&quot; -&gt; becomes, &quot;Math is important, so you can calculate tips at restaurants!&quot;</p>
+
+<p>&quot;Create a curiosity gap&quot; -&gt; becomes clickbait. I should clarify my &quot;Top 5 Tricks&quot; title was ironic.</p>
+
+<p>The problem is that these Tricks make you second-guess your audience. Solution: don&#39;t second guess what would make your audience care about some topic. Just show them what made <em>you</em> care about that topic.</p>
+
+<p>An interesting puzzle? A clever creation? A personal story? Show me <em>what</em> made you care.</p>
+
+<p>Important: I said, &quot;show WHAT made you care&quot;, not &quot;tell WHY you care.&quot; If you try to report WHY you care, it can be way too abstract. </p>
+
+<p>For example, if you asked me, &quot;why do you care about group theory?&quot; I might say, &quot;Group theory unifies several branches of mathematics, and has applications in quantum field theory.&quot; Which is <em>true</em>, but to a total novice, that&#39;s abstract gobbledygook.</p>
+
+<p>It&#39;s better to ask me, <em>what</em> made you care about group theory?&quot; Only years after I learnt about group theory, did I finally <em>care</em> about it, thanks to this puzzle:</p>
+
+<p><em>Why do mirrors flip left-and-right, but not up-and-down?</em></p>
+
+<p>...which doesn&#39;t even sound like a <em>math</em> question! Yet it is, and its solution is a great introduction to group theory. (Don&#39;t ask me to explain mirrors right now, I only have 15 minutes.)</p>
+
+<p>The point is, to avoid second-guessing &amp; being too abstract: Don&#39;t tell me why someone might care, <em>show</em> me <em>what</em> made <em>you</em> care.</p>
+
+<hr>
+
+<p>But, speaking of showing &amp; telling... once you&#39;ve helped your audience <em>want</em> to learn, how do you deliver? Well:</p>
+
+<h2 id="toc_4">Trick #2: Show, <em>then</em> tell.</h2>
+
+<p>&quot;Show <em>don&#39;t</em> tell&quot; is good for fiction, not so much for non-fiction. But fact-dumping educational material does the opposite: &quot;tell, don&#39;t show.&quot; Look, I love Wikipedia, I give Jimmy my monies each month, but... well, here&#39;s their introduction to a &quot;symmetry group&quot;:</p>
+
+<blockquote>
+<p>In group theory, the symmetry group of a geometric object is the group of all transformations under which the object is invariant.</p>
+</blockquote>
+
+<p>// gif</p>
+
+<p>Obviously, it&#39;s better to Show <em>and</em> Tell. But it&#39;s still easy to accidentally mess up, if you show &amp; tell <em>in the wrong order.</em></p>
+
+<p>For example, I recently read this classic masterpiece of math exposition, titled <em>Gödel&#39;s Proof</em>. It&#39;s fantastic! But when they explained what a &quot;formal mathematical system&quot; was, they started by <em>telling</em> me a page of technical definitions about theorems &amp; axioms, and I was totally lost.</p>
+
+<p>Only on the next page did they <em>show</em> me an analogy: chess. Chess pieces are like math symbols. An arrangement of pieces is like an arrangement of symbols, called Theorems. The rules on how to move from one arrangement to another, are like the rules for how to <em>prove</em> one theorem from another. The starting arrangement in chess, are like the starting Theorems in math, called Axioms.</p>
+
+<p>And I was like... &quot;that is the most <em>beautiful</em> explanation I&#39;ve ever heard of pure mathematical logic.&quot;</p>
+
+<p>&quot;...<em>Why didn&#39;t you start with that?!</em>&quot;</p>
+
+<p>So: don&#39;t just show <em>and</em> tell, show <em>then</em> tell.</p>
+
+<p>Concrete, <em>then</em> abstract.</p>
+
+<p>Familiar, <em>then</em> unfamiliar.</p>
+
+<p>How do we do this? Easy! Just remember the acronym:</p>
+
+<p>PEA! With an A.</p>
+
+<p>Pictures, Examples, Analogy.</p>
+
+<p><em>Show</em> me a picture like this, <em>then</em> tell me, &quot;a fractal is a shape that contains a smaller copy of itself.&quot;</p>
+
+<p><em>Show</em> me the example of how a square (a &quot;geometric object&quot;) can be flipped and rotated (&quot;transformation&quot;) yet its square shape doesn&#39;t vary (&quot;invariant&quot;)... <em>then</em> tell me, <em>&quot;the symmetry group of a geometric object is the group of all transformations under which the object is invariant&quot;</em>.</p>
+
+<p><em>Show</em> me a chess analogy for pure mathematics, <em>then</em> tell me the technical definitions.</p>
+
+<p>Show, <em>then</em> tell.</p>
+
+<hr>
+
+<p>So that&#39;s how you explain <em>one</em> idea. But – hear me out, I know this sounds crazy – what if you want to explain <em>more</em> than one idea?</p>
+
+<p>Well, do not do a listicle. Again, my &quot;Top 5 Tricks&quot; was ironic. Don&#39;t give me a disconnected listicle, give me a connected <em>story</em>.</p>
+
+<p>How? With this:</p>
+
+<h2 id="toc_5">Trick #3: Therefore &amp; But, not And Then</h2>
+
+<p>Imagine you have a story that goes:</p>
+
+<ul>
+<li>some guy gets superpowers, AND THEN</li>
+<li>some other guy dies tragically, AND THEN</li>
+<li>there&#39;s a moral lesson</li>
+</ul>
+
+<p>Have you noticed a lot of recent Hollywood movies feel like that? A series of grand set-pieces that <em>should</em> be emotionally moving on paper, and yet... it feels hollow. I reckon that&#39;s because each event is connected with an &quot;AND THEN&quot;, not a &quot;therefore&quot; or &quot;but&quot;. If events aren&#39;t <em>consequences</em> of each other, they won&#39;t feel <em>consequential.</em></p>
+
+<p>Contrast that to this story: </p>
+
+<ul>
+<li>Peter Parker was a kid who got no recognition or respect</li>
+<li>BUT a spider bites him and gives him superpowers</li>
+<li>THEREFORE he uses his powers to get recognition &amp; respect</li>
+<li>BUT his irresponsibility indirectly causes the death of his uncle</li>
+<li>THEREFORE he learns a moral lesson: with great power comes great responsibility.</li>
+</ul>
+
+<p><em>That</em> is the kind of modern fable that&#39;ll be carved into our culture, like &quot;cry wolf&quot; or &quot;sour grapes&quot;. Why? Because it shows the therefore/but loop of every great story, of life itself:</p>
+
+<p>There&#39;s a conflict, <em>therefore</em> a character changes something. (Their actions, beliefs, deepest values) <em>But</em> this causes a new conflict. <em>Therefore</em>  they change again. <em>But</em> new conflict. <em>Therefore</em> new change. Repeat. In books &amp; in life, that&#39;s how you get <em>real</em> character growth.</p>
+
+<p>This &quot;Therefore &amp; But&quot; trick was coined by the creators of South Park, as advice for writing fiction. But a few years ago it was re-popularized by Tony Zhou, creator of the video essay series Every Frame A Painting, because it also works for writing <em>non</em>-fiction.</p>
+
+<p>So here&#39;s an example of using Therefore &amp; But for non-fiction: explaining how a piano key works.</p>
+
+<p>Here&#39;s a GIF of the inside of a piano key:</p>
+
+<p>// gif</p>
+
+<p>...<em>why</em>. <em>Why</em> is that <em>that</em> complicated.</p>
+
+<p>Alright. Does <em>this</em> help?</p>
+
+<p>// pic</p>
+
+<p>No offense to whoever made those, they clearly put a lot of skilled effort into it. But it&#39;s a very <em>And Then</em> explanation. Here&#39;s the hammer shank <em>and then</em> here&#39;s the capstan <em>and then</em> here&#39;s the damper lever, etc.</p>
+
+<p>Contrast that to a recent video from engineer Mark Rober, who used a Therefore/But loop to explain why the piano key is designed the way it is:</p>
+
+<ul>
+<li>You want to play a note when you press a key</li>
+<li>THEREFORE you try the obvious solution: make a hammer hit a string when you press the key.</li>
+<li>BUT, problem: if you <em>hold</em> the key, the hammer <em>stays touching</em> the string, stopping it from vibrating, meaning it can&#39;t play!</li>
+<li>THEREFORE you add a &quot;flicking&quot; mechanism, so the hammer is <em>flicked</em> towards the string, but comes down right after.</li>
+<li>BUT, new problem: the note won&#39;t stop playing even when you <em>release</em> the key.</li>
+<li>THEREFORE you add a dampener, that stops the string when the key&#39;s released.</li>
+</ul>
+
+<p>Aaaand some other stuff I don&#39;t remember. Point is, that&#39;s the core therefore/but loop of how <em>any</em> complex idea is designed, whether in engineering, science, philosophy... anything:</p>
+
+<p>You have a problem (or puzzle, or question). <em>Therefore</em> you try a solution (or hypothesis). <em>But</em> this gives rise to a new problem. <em>Therefore</em> you try a new solution. <em>But</em> new problem. <em>Therefore</em> new solution. Repeat. In science &amp; in life, that&#39;s how we get real intellectual growth.</p>
+
+<p>So the next time you explain a complex idea, don&#39;t give me a disconnected listicle (&quot;And Then&quot;), give me a connected <em>story</em> (&quot;Therefore &amp; But&quot;).</p>
+
+<p>As we saw with the humble piano key: you don&#39;t need to <em>make up</em> a story.</p>
+
+<p>The story&#39;s <em>already there.</em></p>
+
+<hr>
+
+<p>So, our first three Tricks – show <em>what</em> made you care, show <em>then</em> tell, therefore &amp; but – these will help make your explanation more beneficial for your audience.</p>
+
+<p>BUT...</p>
+
+<p>(beat)</p>
+
+<p>It&#39;s not enough to think about benefits, you also need to think about <em>costs</em>. Specifically: the cost of time. Our time being alive is precious, our ultimate non-renewable resource.</p>
+
+<p>THEREFORE...</p>
+
+<p>We need to respect our audience&#39;s time, and be concise. So:</p>
+
+<h2 id="toc_6">Trick #4: Write a draft, then cut 10%</h2>
+
+<p>No matter how good you get at writing, at least 10% of your first draft will always be <em>fluff</em>. Redundant words... non-sequiturs... redundant words... y&#39;know, <em>fluff.</em> Find that fluff, and cut it. So:</p>
+
+<ol>
+<li>Write a first draft, then get a word count.</li>
+<li>Multiply that number by 0.9, to get 90% of the word count.</li>
+<li><em>Cut your draft down</em> to meet this new word count.</li>
+</ol>
+
+<p>There is so, <em>so</em> much more I want to tell you about being concise...</p>
+
+<p>...and, I won&#39;t.</p>
+
+<hr>
+
+<p>Finally,</p>
+
+<h2 id="toc_7">Trick #5: Do <em>REAL</em> tests, early &amp; often.</h2>
+
+<p>In the 4th century BC, Aristotle claimed that heavier objects fall faster. Everyone thought so. It was just common sense.</p>
+
+<p>In the 16th century AD, scientists finally tested the idea. It&#39;s false. Two lead balls of different sizes &amp; weights, dropped from the top of a building, will fall with equal acceleration. (As an aside, Galileo himself probably never did this experiment, but we know other scientists did during that time.)</p>
+
+<p>4th century BC. 16th century AD. That&#39;s about <em>two thousand years</em>.</p>
+
+<p>Two. <em>Thousand</em>. Years.</p>
+
+<p>That&#39;s how long it took humanity to discover something that <em>you</em> could&#39;ve discovered, with <em>two balls and ten seconds</em>.</p>
+
+<p>Like I mentioned at the start, <em>the idea that we should test our ideas</em> does not come naturally to human beings. It doesn&#39;t happen enough in politics. Heck, given science&#39;s replication crisis, it doesn&#39;t even happen enough in science. But it&#39;s especially hard to test our ideas in the creative arts – such as making an explainer article or video. It&#39;s hard to put your own creative darlings to a trial by fire.</p>
+
+<p>I&#39;ll admit, Trick #5 is still the hardest for me. But I&#39;m trying to get better. For a concrete example of what I mean by, &quot;do real tests, early &amp; often&quot;, here&#39;s the story of how I tested and iterated upon... <em>this</em> talk!</p>
+
+<p>A few days ago, I met two friends for dinner, and I wanted to test this talk with them. Usually, I only test explainers <em>after</em> I&#39;ve written &amp; edited my first draft – but <em>this</em> time, I had nothing but an outline. I improvised my entire talk, using this sketchbook to draw diagrams &amp; record feedback.</p>
+
+<p><em>That&#39;s</em> testing early &amp; often.</p>
+
+<p>But I went further, and told my friends: <em>PLEASE HECKLE ME.</em> Because, when I usually test my explainers, I only ask <em>afterwards</em> what parts felt boring, surprising, confusing, insightful. Which is better than nothing, but it means I&#39;m selecting for <em>the feeling of learning</em>, not necessarily <em>actual learning</em>. So I told my friends to heckle me: As soon as something I&#39;m saying is redundant, or makes no sense, <em>interrupt and tell me</em>. I also asked them to summarize what I said &amp; try applying the tricks to their own work, to test for recall &amp; transfer –– <em>actual learning</em>, not just the <em>feeling</em> of it. (But, I reassured them that if they can&#39;t remember what I said, that&#39;s not their fault as a listener, that&#39;s <em>my</em> fault as a communicator.)</p>
+
+<p><em>That&#39;s</em> doing a <em>real</em> test.</p>
+
+<p>So the next time you test an explainer, don&#39;t just share it for feedback <em>after</em> you edit the first draft. Get feedback when all you have is an outline and sketchbook, and <em>encourage your friends to heckle you</em>.</p>
+
+<p>In science, politics, life, and art – we should do <em>real</em> tests, early and often.</p>
+
+<p>Because when humanity forgets <em>the idea that we should test our ideas</em>, apparently, we deceive ourselves for 2000 years.</p>
+
+<hr>
+
+<h2 id="toc_8">In Conclusion</h2>
+
+<p>Those are the 5 Tricks I keep coming back to, that have stood the test of time for me:</p>
+
+<ol>
+<li>Show <em>what</em> made you care</li>
+<li>Show, <em>then</em> tell (with PEA – Pictures, Examples, Analogy)</li>
+<li>Therefore &amp; But (and the Problem-Solution story loop)</li>
+<li>Write a draft, then cut 10%</li>
+<li>Do <em>real</em> tests, early &amp; often</li>
+</ol>
+
+<p>So, dear listener, here&#39;s <em>our</em> story loop:</p>
+
+<p>Problem: there&#39;s a beautiful, important, complex idea you want others to know.</p>
+
+<p>THEREFORE</p>
+
+<p>Solution: you write an outline of an explainer – what made you care, concrete examples, therefore &amp; buts – and improvise a talk for friends.</p>
+
+<p>BUT</p>
+
+<p>Problem: your friends like it, but they were bored by some parts, and they misinterpreted other parts – the <em>feeling</em> of learning, not <em>actual</em> learning.</p>
+
+<p>THEREFORE</p>
+
+<p>Solution: you take in their feedback, write the first draft, and cut it by 10%. Then, you send it out for more feedback.</p>
+
+<p>BUT</p>
+
+<p>Your test audience finds more problems.</p>
+
+<p>THEREFORE</p>
+
+<p>You iterate on it with more solutions.</p>
+
+<p>REPEAT until your explainer has gone from good to great. You hit &quot;publish&quot;, and show it to the world.</p>
+
+<p>THE END. (for now)</p>
+
+<p>That&#39;s the story-loop of some people, people like you and me.</p>
+
+<p>Some people, who just want to watch the world learn.</p>
+
+<p>Thank you so much!</p>
+
+
+
+
+</body>
+
+</html>
